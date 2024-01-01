@@ -137,10 +137,10 @@ void search_2(int k) {
 //MAP THE SOLUTION TO THE GRID
 void MapSolutionToGrid_2(int Sudoku[][GRID_SIZE]) {
 	for (int i = 0; solutions_2[i] != NULL; i++) {
-			Sudoku[solutions_2[i]->rowID[1]-1][solutions_2[i]->rowID[2]-1] = solutions_2[i]->rowID[0];
+			Sudoku[solutions_2[i]->rowId[1]-1][solutions_2[i]->rowId[2]-1] = solutions_2[i]->rowId[0];
 	}
 	for (int i = 0; originalValues_2[i] != NULL; i++) {
-		Sudoku[originalValues_2[i]->rowID[1] - 1][originalValues_2[i]->rowID[2] - 1] = originalValues_2[i]->rowID[0];
+		Sudoku[originalValues_2[i]->rowId[1] - 1][originalValues_2[i]->rowId[2] - 1] = originalValues_2[i]->rowId[0];
 	}
 }
 
@@ -250,9 +250,9 @@ void buildLinkedList_2(bool matrix_9[ROW_COUNT][COLUMN_COUNT]) {
 		for (int j = 0; j < COLUMN_COUNT; j++, top = top->right) {
 			if (matrix_9[i][j]) {
 				Node* newNode = new Node;
-				newNode->rowID[0] = ID[0];
-				newNode->rowID[1] = ID[1];
-				newNode->rowID[2] = ID[2];
+				newNode->rowId[0] = ID[0];
+				newNode->rowId[1] = ID[1];
+				newNode->rowId[2] = ID[2];
 				if (prev == NULL) {
 					prev = newNode;
 					prev->right = newNode;
@@ -284,10 +284,10 @@ void transformListToCurrentGrid_2(int Puzzle[][GRID_SIZE]) {
 			if (Puzzle[i][j] > 0) {
 				Node* Col = NULL;
 				Node* temp = NULL;
-				//Find the node with the same rowID as the original value
+				//Find the node with the same rowId as the original value
 				for (Col = HeadNode_2->right; Col != HeadNode_2; Col = Col->right) {
 					for (temp = Col->down; temp != Col; temp = temp->down)
-						if (temp->rowID[0] == Puzzle[i][j] && (temp->rowID[1] - 1) == i && (temp->rowID[2] - 1) == j)
+						if (temp->rowId[0] == Puzzle[i][j] && (temp->rowId[1] - 1) == i && (temp->rowId[2] - 1) == j)
 							goto ExitLoops; //break out of both loops
 				}
 ExitLoops:		coverColumn_2(Col);

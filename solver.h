@@ -9,7 +9,7 @@ struct Node {
 	Node *head;
 	
 	int size;		//used for Column header
-	int rowID[3];	//used to identify row in order to map solutions to a sudoku grid
+	int rowId[3];	//used to identify row in order to map solutions to a sudoku grid
 };
 
 void printGrid_1(int Sudoku[][9]);
